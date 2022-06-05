@@ -19,15 +19,13 @@ export const convertRawTsNodeToProcessedTsNode = (
   }[] = rawTsNode.imports.map(n => {
     return {
       importType: n.importType,
-      importSource: processPathText(
-        baseDirectory,
-        rawTsNode.filepathBasedOnTarget,
-        n.text
-      ),
+      importSource: processPathText(baseDirectory, rawTsNode.pathAbs, n.text),
     };
   });
+
+  const filepathBasedOnTarget = path.relative(baseDirectory, rawTsNode.pathAbs);
   return {
-    filepathBasedOnTarget: rawTsNode.filepathBasedOnTarget,
+    filepathBasedOnTarget,
     imports,
   };
 };
