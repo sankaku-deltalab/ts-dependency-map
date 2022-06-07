@@ -36,7 +36,7 @@ const processPathText = (
   pathText: string
 ): ImportSource => {
   if (pathText.startsWith('.')) {
-    const abs = path.resolve(filepath, pathText);
+    const abs = path.resolve(path.dirname(filepath), pathText + '.ts');
     return {type: 'path', path: path.relative(baseDirectory, abs)};
   }
   return {type: 'package', name: pathText};
