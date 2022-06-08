@@ -1,7 +1,7 @@
 {
   "name": "ts-dependency-map",
   "version": "0.1.0",
-  "description": "",
+  "description": "Draw typescript dependency graph",
   "files": [
     "dist",
     "bin"
