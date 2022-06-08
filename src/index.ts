@@ -1,24 +1,31 @@
-console.log('Try npm run lint/fix!');
+import {Command} from 'commander';
+import {exportMermaidJsGraph} from './use-cases/export-mermaid-js-graph';
 
-const longString =
-  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut aliquet diam.';
+const version = '0.1.0';
 
-const trailing = 'Semicolon';
+const program = new Command()
+  .name('tsdm')
+  .description('Generate typescript dependency graph.')
+  .version(version);
 
-const why = 'am I tabbed?';
+program
+  .command('mermaid')
+  .description('Export graph as mermaid.js')
+  .argument('<target>', 'root path of ts directory')
+  .argument('<dest>', 'export destination')
+  .option(
+    '-d, --direction <string>',
+    'mermaid graph direction. "TB" | "TD" | "BT" | "RL" | "LR"',
+    'LR'
+  )
+  .action(
+    (
+      target: string,
+      dest: string,
+      options: {direction: 'TB' | 'TD' | 'BT' | 'RL' | 'LR'}
+    ) => {
+      exportMermaidJsGraph(target, dest, {direction: options.direction});
+    }
+  );
 
-export function doSomeStuff(
-  withThis: string,
-  andThat: string,
-  andThose: string[]
-) {
-  //function on one line
-  if (!andThose.length) {
-    return false;
-  }
-  console.log(withThis);
-  console.log(andThat);
-  console.dir(andThose);
-  return;
-}
-// TODO: more examples
+program.parse();
