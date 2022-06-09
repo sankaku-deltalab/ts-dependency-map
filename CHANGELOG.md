@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add homepage in package.json
 - Add author in package.json
 
+### Fixed
+- Fix image reference in README.md
+
 ## [1.0.0] - 2022-06-08
 ### Added
 - Initial release.
