@@ -1,12 +1,14 @@
 {
   "name": "ts-dependency-map",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Draw typescript dependency graph",
   "files": [
     "dist",
     "bin"
   ],
   "license": "Apache-2.0",
+  "author": "Sankaku <sankaku_dlt.45631@outlook.jp>",
+  "homepage": "https://github.com/sankaku-deltalab/ts-dependency-map#readme",
   "keywords": [
     "typescript",
     "dependency",
