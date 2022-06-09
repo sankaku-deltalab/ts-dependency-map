@@ -1,7 +1,7 @@
 import {Command} from 'commander';
 import {exportMermaidJsGraph} from './use-cases/export-mermaid-js-graph';
 
-const version = '0.1.0';
+const version = '1.0.0';
 
 const program = new Command()
   .name('tsdm')
